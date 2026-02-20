@@ -5,12 +5,12 @@ import Marquee from 'react-fast-marquee'
 const items = [
   'Creative Development',
   'Web Design',
-  'Motion & Animation',
-  'UI/UX Design',
+  'Flask.py',
+  'Tech Mentor',
   'Next.js',
   'Framer Motion',
   'Tailwind CSS',
-  'Digital Experiences',
+  'Express.js',
 ]
 
 export default function MarqueeStrip() {

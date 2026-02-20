@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, Variants } from 'framer-motion'
+import Image from 'next/image'
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 60 },
@@ -32,15 +33,20 @@ export default function Hero() {
         Creative Developer
       </motion.p>
 
-      {/* Photo — mobile only, sits above the name */}
+      {/* Mobile photo */}
       <motion.div
         custom={1}
         variants={fadeUp}
         initial="hidden"
         animate="visible"
-        className="md:hidden w-20 h-20 rounded-full bg-accent/20 border border-accent/30 overflow-hidden flex items-center justify-center mb-4"
+        className="md:hidden w-24 h-32 rounded-2xl border border-accent/30 overflow-hidden mb-4 shrink-0 relative"
       >
-        <span className="text-xs text-fg/30 tracking-widest">Photo</span>
+        <Image
+          src="/images/hero-photo.PNG"
+          alt="Fehinti"
+          fill
+          className="object-cover object-center"
+        />
       </motion.div>
 
       {/* Main heading */}
@@ -55,7 +61,6 @@ export default function Hero() {
           Fehinti
         </motion.h1>
 
-        {/* Desktop — name + photo side by side */}
         <div className="flex items-center gap-3 md:gap-6">
           <motion.h1
             custom={3}
@@ -67,15 +72,20 @@ export default function Hero() {
             Adekoya
           </motion.h1>
 
-          {/* Photo bubble — desktop only */}
+          {/* Desktop photo */}
           <motion.div
             custom={4}
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="hidden md:flex w-[18vw] h-[13vw] rounded-full bg-accent/20 border border-accent/30 overflow-hidden items-center justify-center shrink-0"
+            className="hidden md:block w-[16vw] h-[20vw] rounded-3xl border border-accent/30 overflow-hidden shrink-0 relative"
           >
-            <span className="text-xs text-fg/30 tracking-widest">Photo</span>
+            <Image
+              src="/images/hero-photo.PNG"
+              alt="Fehinti"
+              fill
+              className="object-cover object-center"
+            />
           </motion.div>
         </div>
       </div>

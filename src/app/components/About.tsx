@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import Image from 'next/image'
 
 const skills = [
   'Next.js', 'React', 'TypeScript', 'Tailwind CSS',
@@ -42,9 +43,9 @@ export default function About() {
             transition={{ duration: 0.9, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
             className="text-sm text-fg/50 leading-relaxed"
           >
-            I am Fehinti Adekoya, a creative full-stack developer based in Lagos, Nigeria.
-            I build digital experiences that are fast, beautiful, and purposeful;
-            bridging the gap between design, vision and technical execution.
+            I am Fehinti Adekoya, a creative developer based in Lagos, Nigeria.
+            I build digital experiences that are fast, beautiful, and purposeful —
+            bridging the gap between design vision and technical execution.
           </motion.p>
 
           <motion.p
@@ -54,34 +55,40 @@ export default function About() {
             className="text-sm text-fg/50 leading-relaxed"
           >
             When I am not coding, I am exploring the intersection of art, culture,
-            and technology; basically always looking for the next thing that makes people
-            stop and say wow!.
+            and technology — always looking for the next thing that makes people
+            stop and say wow.
           </motion.p>
 
           {/* CTA */}
-          <motion.a
-            href="mailto:adekoyafehinti@gmail.com"
+          <motion.button
+            onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="group inline-flex items-center gap-3 text-xs tracking-[0.3em] uppercase text-fg/60 hover:text-fg transition-colors duration-300 w-fit border-b border-fg/20 hover:border-fg/60 pb-1"
+            className="group inline-flex items-center gap-3 text-xs tracking-[0.3em] uppercase text-fg/60 hover:text-fg transition-colors duration-300 w-fit border-b border-fg/20 hover:border-fg/60 pb-1 bg-transparent cursor-pointer"
+            style={{ borderLeft: 'none', borderRight: 'none', borderTop: 'none' }}
           >
             <span>Get in touch</span>
             <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
-          </motion.a>
+          </motion.button>
         </div>
 
         {/* Right col — photo + skills */}
         <div className="flex flex-col gap-12">
 
-          {/* Photo placeholder */}
+          {/* Photo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 1, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
-            className="w-full aspect-[1.1] bg-fg/5 border border-fg/10 rounded-sm flex items-center justify-center overflow-hidden"
+            className="w-full h-80 md:h-[500px] border border-fg/10 rounded-sm overflow-hidden relative"
           >
-            <span className="text-xs text-fg/20 tracking-widest">Your Photo Here</span>
+            <Image
+              src="/images/about-photo.PNG"
+              alt="Fehinti Adekoya"
+              fill
+              className="object-cover object-center"
+            />
           </motion.div>
 
           {/* Skills */}

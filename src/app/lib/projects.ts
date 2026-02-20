@@ -11,6 +11,15 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: '01',
+     title: 'PORTFOLIO',
+    category: 'Web Development',
+    year: '2026',
+    description: 'A personal portfolio website showcasing projects and skills.',
+    color: '#1b1b2f',
+    link: 'https://fehintiportfolio.netlify.app/',
+  },
+  {
+    id: '02',
      title: 'EVEN-EYE',
     category: 'A security application',
     year: '2026',
@@ -19,7 +28,7 @@ export const projects: Project[] = [
     link: '#',
   },
   {
-    id: '02',
+    id: '03',
     title: 'AI-Resume Critic App',
     category: 'AI Application',
     year: '2026',
@@ -28,7 +37,7 @@ export const projects: Project[] = [
     link: 'https://resumecritic.netlify.app/',
   },
   {
-    id: '03',
+    id: '04',
     title: 'Mental Health Chatbot',
     category: 'Healthcare AI',
     year: '2025',
@@ -38,7 +47,7 @@ export const projects: Project[] = [
     
   },
   {
-    id: '04',
+    id: '05',
     title: 'Contact App',
     category: 'Web Application',
     year: '2024',
@@ -48,7 +57,7 @@ export const projects: Project[] = [
     
   },
    {
-    id: '05',
+    id: '06',
     title: 'SpicyTee',
     category: 'Restaurant website',
     year: '2023',
@@ -57,7 +66,7 @@ export const projects: Project[] = [
     link: '#',
   },
   {
-    id: '06',
+    id: '07',
     title: 'NEWT-Tech',
     category: 'Web Development',
     year: '2022',
