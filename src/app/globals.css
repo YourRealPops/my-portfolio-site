@@ -10,13 +10,35 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  background-color: var(--color-bg);
-  color: var(--color-fg);
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  overflow-x: hidden;
+/* Dark mode — default */
+:root {
+  --bg: oklch(10% 0 0);
+  --fg: oklch(94% 0.005 80);
+  --accent: oklch(76% 0.04 70);
 }
 
+/* Light mode — cool grey + warm brown */
+[data-theme='light'] {
+  --bg: oklch(93% 0.003 260);
+  --fg: oklch(28% 0.03 50);
+  --accent: oklch(45% 0.06 50);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--color-bg); }
-::-webkit-scrollbar-thumb { background: var(--color-accent); }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); }
+
+/* Make sure all sections inherit the bg properly */
+section, footer, nav {
+  background-color: var(--bg);
+  transition: background-color 0.5s ease;
+}

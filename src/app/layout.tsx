@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import ThemeProvider from './components/ThemeProvider'
 
 export const metadata: Metadata = {
   title: 'Fehinti Adekoya — Creative Developer',
@@ -16,12 +17,19 @@ export default function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `history.scrollRestoration = 'manual'; window.scrollTo(0, 0);`,
+            __html: `
+              history.scrollRestoration = 'manual';
+              window.scrollTo(0, 0);
+              const theme = localStorage.getItem('theme') || 'dark';
+              document.documentElement.setAttribute('data-theme', theme);
+            `,
           }}
         />
       </head>
       <body className="bg-bg text-fg antialiased" suppressHydrationWarning>
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

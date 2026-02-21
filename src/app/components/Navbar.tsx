@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTheme } from './ThemeProvider'
 
 const navLinks = [
   { label: 'Projects', href: '#projects' },
@@ -14,6 +15,7 @@ export default function Navbar() {
   const [visible, setVisible] = useState(true)
   const [menuOpen, setMenuOpen] = useState(false)
   const lastY = useRef(0)
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +29,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -42,7 +43,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Main navbar */}
       <AnimatePresence>
         {visible && (
           <motion.nav
@@ -72,36 +72,52 @@ export default function Navbar() {
                   </button>
                 </li>
               ))}
+
+              {/* Theme toggle — desktop */}
+              <li>
+                <button
+                  onClick={toggleTheme}
+                  className="w-8 h-8 border border-fg/20 hover:border-fg/60 rounded-full flex items-center justify-center text-fg/40 hover:text-fg transition-all duration-300 bg-transparent cursor-pointer"
+                  aria-label="Toggle theme"
+                >
+                  {theme === 'dark' ? '○' : '●'}
+                </button>
+              </li>
             </ul>
 
             {/* Mobile hamburger */}
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden flex flex-col justify-center gap-1.5 bg-transparent border-none cursor-pointer p-1 z-50"
-              aria-label="Toggle menu"
-            >
-              <motion.span
-                animate={{
-                  rotate: menuOpen ? 45 : 0,
-                  y: menuOpen ? 6 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-                className="block w-5 h-px bg-fg origin-center"
-              />
-              <motion.span
-                animate={{ opacity: menuOpen ? 0 : 1, scaleX: menuOpen ? 0 : 1 }}
-                transition={{ duration: 0.3 }}
-                className="block w-5 h-px bg-fg"
-              />
-              <motion.span
-                animate={{
-                  rotate: menuOpen ? -45 : 0,
-                  y: menuOpen ? -6 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-                className="block w-5 h-px bg-fg origin-center"
-              />
-            </button>
+            <div className="md:hidden flex items-center gap-4">
+              {/* Theme toggle — mobile */}
+              <button
+                onClick={toggleTheme}
+                className="w-7 h-7 border border-fg/20 rounded-full flex items-center justify-center text-fg/40 hover:text-fg transition-all duration-300 bg-transparent cursor-pointer text-xs"
+                aria-label="Toggle theme"
+              >
+                {theme === 'dark' ? '○' : '●'}
+              </button>
+
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="flex flex-col justify-center gap-1.5 bg-transparent border-none cursor-pointer p-1"
+                aria-label="Toggle menu"
+              >
+                <motion.span
+                  animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 6 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="block w-5 h-px bg-fg origin-center"
+                />
+                <motion.span
+                  animate={{ opacity: menuOpen ? 0 : 1, scaleX: menuOpen ? 0 : 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="block w-5 h-px bg-fg"
+                />
+                <motion.span
+                  animate={{ rotate: menuOpen ? -45 : 0, y: menuOpen ? -6 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="block w-5 h-px bg-fg origin-center"
+                />
+              </button>
+            </div>
           </motion.nav>
         )}
       </AnimatePresence>
@@ -116,7 +132,6 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 bg-bg md:hidden flex flex-col items-center justify-center"
           >
-            {/* Links */}
             <nav className="flex flex-col items-center gap-5">
               {navLinks.map((link, i) => (
                 <motion.button
@@ -133,7 +148,6 @@ export default function Navbar() {
               ))}
             </nav>
 
-            {/* Bottom detail */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
