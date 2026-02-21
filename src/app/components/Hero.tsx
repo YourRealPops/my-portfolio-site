@@ -51,6 +51,8 @@ export default function Hero() {
 
       {/* Main heading */}
       <div className="flex flex-col gap-0 leading-none">
+
+        {/* FEHINTI — filled/solid */}
         <motion.h1
           custom={2}
           variants={fadeUp}
@@ -61,13 +63,18 @@ export default function Hero() {
           Fehinti
         </motion.h1>
 
+        {/* ADEKOYA — outlined + photo */}
         <div className="flex items-center gap-3 md:gap-6">
           <motion.h1
             custom={3}
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="text-[18vw] md:text-[9vw] font-light tracking-tight text-fg uppercase"
+            className="text-[18vw] md:text-[9vw] font-light tracking-tight uppercase"
+            style={{
+              color: 'transparent',
+              WebkitTextStroke: '1px #f0ede6',
+            }}
           >
             Adekoya
           </motion.h1>

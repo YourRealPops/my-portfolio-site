@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { projects } from '../lib/projects'
 
@@ -10,8 +10,14 @@ export default function Projects() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
+  useEffect(() => {
+    document.body.style.overflow = modalOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [modalOpen])
+
   return (
     <section id="projects" className="px-4 md:px-6 py-16 md:py-24">
+
       {/* Section header */}
       <div ref={ref} className="flex items-end justify-between mb-16 border-b border-fg/10 pb-6">
         <motion.h2
@@ -67,12 +73,28 @@ export default function Projects() {
               </div>
             </div>
 
-            {/* Right — category + year + arrow */}
+            {/* Right — category + status + year + arrow */}
             <div className="relative z-10 flex items-center gap-4 md:gap-8">
               <span className="hidden md:block text-xs text-fg/40 tracking-widest uppercase">
                 {project.category}
               </span>
+
+              {/* Blinking green dot — only for Even-Eye */}
+              {project.inDevelopment && (
+                <div className="flex items-center gap-1.5">
+                  <motion.span
+                    animate={{ opacity: [1, 0.2, 1] }}
+                    transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+                    className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block shrink-0"
+                  />
+                  <span className="text-xs text-green-400/60 tracking-wide hidden md:block">
+                    In development
+                  </span>
+                </div>
+              )}
+
               <span className="text-xs text-fg/30">{project.year}</span>
+
               <motion.span
                 className="text-fg/30 text-lg"
                 animate={{
@@ -151,18 +173,33 @@ export default function Projects() {
                   >
                     <div className="flex items-center gap-4">
                       <span className="text-xs text-fg/30">{project.id}</span>
-                      <div>
+                      <div className="flex flex-col gap-1">
                         <p className="text-sm text-fg font-light">{project.title}</p>
-                        <p className="text-xs text-fg/30 mt-0.5">{project.category}</p>
+                        <p className="text-xs text-fg/30">{project.category}</p>
                       </div>
                     </div>
 
-                    <button
-                      onClick={() => project.link && window.open(project.link, '_blank')}
-                      className="text-xs tracking-widest text-fg/40 hover:text-fg border border-fg/10 hover:border-fg/40 px-3 py-1.5 transition-all duration-200 bg-transparent cursor-pointer"
-                    >
-                      Visit ↗
-                    </button>
+                    <div className="flex items-center gap-3">
+                      {/* Blinking dot in modal too */}
+                      {project.inDevelopment && (
+                        <div className="flex items-center gap-1.5">
+                          <motion.span
+                            animate={{ opacity: [1, 0.2, 1] }}
+                            transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+                            className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block shrink-0"
+                          />
+                          <span className="text-xs text-green-400/60 tracking-wide">
+                            In dev
+                          </span>
+                        </div>
+                      )}
+                      <button
+                        onClick={() => project.link && window.open(project.link, '_blank')}
+                        className="text-xs tracking-widest text-fg/40 hover:text-fg border border-fg/10 hover:border-fg/40 px-3 py-1.5 transition-all duration-200 bg-transparent cursor-pointer"
+                      >
+                        Visit ↗
+                      </button>
+                    </div>
                   </motion.div>
                 ))}
               </div>

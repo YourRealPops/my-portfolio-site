@@ -6,6 +6,7 @@ export type Project = {
   description: string
   color: string
   link?: string
+  inDevelopment?: boolean
 }
 
 export const projects: Project[] = [
@@ -17,6 +18,7 @@ export const projects: Project[] = [
     description: 'A personal portfolio website showcasing projects and skills.',
     color: '#1b1b2f',
     link: 'https://fehintiportfolio.netlify.app/',
+    inDevelopment: false,
   },
   {
     id: '02',
@@ -25,7 +27,8 @@ export const projects: Project[] = [
     year: '2026',
     description: 'An AI-powered security application that uses computer vision to monitor and analyze surveillance footage.',
     color: '#1b1b2f',
-    link: '#',
+    link: '',
+    inDevelopment: true,
   },
   {
     id: '03',
@@ -35,6 +38,7 @@ export const projects: Project[] = [
     description: 'An AI-powered app that critiques and improves resumes.',
     color: '#1b1b2f',
     link: 'https://resumecritic.netlify.app/',
+    inDevelopment: false,
   },
   {
     id: '04',
@@ -44,7 +48,7 @@ export const projects: Project[] = [
     description: 'An AI-powered chatbot designed to support mental health and wellness.',
     color: '#16213e',
     link: 'https://embrase.netlify.app/',
-    
+    inDevelopment: false,
   },
   {
     id: '05',
@@ -54,7 +58,7 @@ export const projects: Project[] = [
     description: 'A web app that stores and manages contact information, built with Reactjs',
     color: '#0f3460',
     link: 'https://pops-contact-app.netlify.app/',
-    
+    inDevelopment: false,
   },
    {
     id: '06',
@@ -63,7 +67,8 @@ export const projects: Project[] = [
     year: '2023',
     description: 'A restaurant website project for a local eatery, featuring a modern design and online reservation system.',
     color: '#1a1a2e',
-    link: '#',
+    link: '',
+    inDevelopment: false,
   },
   {
     id: '07',
@@ -73,5 +78,6 @@ export const projects: Project[] = [
     description: 'Newt Tech is a technology company that specializes in web development and digital solutions.',
     color: '#1b1b2f',
     link: 'https://newttech.netlify.app/',
+    inDevelopment: false,
   },
 ]
