@@ -22,6 +22,16 @@ export const projects: Project[] = [
   },
   {
     id: '02',
+     title: 'VITALITY-APP',
+    category: 'A health and wellness application',
+    year: '2026',
+    description: 'A health and wellness application that provides personalized recommendations and insights.',
+    color: '#1b1b2f',
+    link: '',
+    inDevelopment: true,
+  },
+  {
+    id: '03',
      title: 'EVEN-EYE',
     category: 'A security application',
     year: '2026',
@@ -31,7 +41,7 @@ export const projects: Project[] = [
     inDevelopment: true,
   },
   {
-    id: '03',
+    id: '04',
     title: 'AI-Resume Critic App',
     category: 'AI Application',
     year: '2026',
@@ -41,7 +51,7 @@ export const projects: Project[] = [
     inDevelopment: false,
   },
   {
-    id: '04',
+    id: '05',
     title: 'Mental Health Chatbot',
     category: 'Healthcare AI',
     year: '2025',
@@ -51,7 +61,7 @@ export const projects: Project[] = [
     inDevelopment: false,
   },
   {
-    id: '05',
+    id: '06',
     title: 'Contact App',
     category: 'Web Application',
     year: '2024',
@@ -61,7 +71,7 @@ export const projects: Project[] = [
     inDevelopment: false,
   },
    {
-    id: '06',
+    id: '07',
     title: 'SpicyTee',
     category: 'Restaurant website',
     year: '2023',
@@ -71,7 +81,7 @@ export const projects: Project[] = [
     inDevelopment: false,
   },
   {
-    id: '07',
+    id: '08',
     title: 'NEWT-Tech',
     category: 'Web Development',
     year: '2022',
