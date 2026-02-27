@@ -27,7 +27,7 @@ export const projects: Project[] = [
     year: '2026',
     description: 'A health and wellness application that provides personalized recommendations and insights.',
     color: '#1b1b2f',
-    link: '',
+    link: 'https://vitalityapp.netlify.app/',
     inDevelopment: true,
   },
   {
