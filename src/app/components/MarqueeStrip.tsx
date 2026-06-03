@@ -11,6 +11,10 @@ const items = [
   'Framer Motion',
   'Tailwind CSS',
   'Express.js',
+  'MongoDB',
+  'AI Applications',
+  'Go-lang',
+  'Next.js',
 ]
 
 export default function MarqueeStrip() {
