@@ -17,7 +17,7 @@ export default function Footer() {
         {/* Right — copyright + arrow */}
         <div className="flex items-center gap-3 md:gap-6">
           <span className="text-xs text-fg/20 tracking-wide">
-            © {new Date().getFullYear()} — All rights reserved
+            © {new Date().getFullYear()} All rights reserved
           </span>
 
           {/* Back to top arrow */}
