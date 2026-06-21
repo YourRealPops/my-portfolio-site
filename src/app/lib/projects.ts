@@ -17,7 +17,7 @@ export const projects: Project[] = [
     year: '2026',
     description: 'A web application designed to help users learn Go programming language through interactive lessons and exercises.',
     color: '#1b1b2f',
-    link: 'https://go-learn.netlify.app/',
+    link: 'https://learn2codego.netlify.app/',
     inDevelopment: true,
   },
    {
