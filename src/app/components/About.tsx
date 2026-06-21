@@ -44,7 +44,7 @@ export default function About() {
             className="text-sm text-fg/50 leading-relaxed"
           >
             I am Fehinti Adekoya, a creative developer based in Lagos, Nigeria.
-            I build digital experiences that are fast, beautiful, and purposeful —
+            I build digital experiences that are fast, beautiful, and purposeful,
             bridging the gap between design vision and technical execution.
           </motion.p>
 
@@ -55,7 +55,7 @@ export default function About() {
             className="text-sm text-fg/50 leading-relaxed"
           >
             When I am not coding, I am exploring the intersection of art, culture,
-            and technology — always looking for the next thing that makes people
+            and technology, always looking for the next thing that makes people
             stop and say wow.
           </motion.p>
 
